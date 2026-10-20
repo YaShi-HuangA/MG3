@@ -19,6 +19,10 @@ public class TimerText : MonoBehaviour
             // Pass in _maxGameTime as the ARGUMENT.
     //}
     // STEP 8 -----------------------------------------------------------------
+    private void Start()
+    {
+        _gameTimer.BeginTimer(_maxGameTime);
+    }
 
     // ------------------------------------------------------------------------
     private void Update()
@@ -33,6 +37,10 @@ public class TimerText : MonoBehaviour
         // Write your if statement below.
 
         // STEP 9 -------------------------------------------------------------
+        if (_gameTimer.IsFinished())
+        {
+            GameOver();
+        }
 
         _timerDisplay.text = _gameTimer.GetTimeLeft().ToString();
     }

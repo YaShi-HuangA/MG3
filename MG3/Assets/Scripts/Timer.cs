@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
     //private ??? ???;
 
     // STEP 1 -----------------------------------------------------------------
+    private float timeLeft;
 
     // STEP 2 -----------------------------------------------------------------
     // Uncomment the below lines and fill in the ???s to create this method.
@@ -31,6 +32,10 @@ public class Timer : MonoBehaviour
     //}
 
     // STEP 2 -----------------------------------------------------------------
+    public void BeginTimer(float startTime)
+    {
+        timeLeft = startTime;
+    }
 
     // STEP 3 -----------------------------------------------------------------
     // Uncomment the line below and fill in the ???s to create this method.
@@ -53,22 +58,32 @@ public class Timer : MonoBehaviour
     //}
 
     // This method can be used to check the value of your time member variable.
+    private void Update()
+    {
+        timeLeft -= Time.deltaTime;
+    }
     public float GetTimeLeft()
     {
         // STEP 4 -------------------------------------------------------------
         // REPLACE this line with a new line of code that reutrns the value of
         //      your time member variable.
-        return 0;
         // STEP 4 -------------------------------------------------------------
+        return timeLeft;
     }
+    
 
     // STEP 5 -----------------------------------------------------------------
     // Write a method here named IsFinished that RETURNS TRUE IF our time member
     //      variable is out of time.
     // Other classes can CALL this method to check if the timer is up.
     // It should be public, and has no input.
+    public bool IsFinished()
+    {
+        return timeLeft <= 0;
+    }
     
 
 
     // STEP 5 -----------------------------------------------------------------
+    
 }
